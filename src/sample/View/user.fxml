@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.Controller.UserController">
+    <children>
+        <Pane id="studentpane" layoutX="0.0" layoutY="0.0" prefHeight="400.0" prefWidth="600.0">
+            <children>
+                <VBox layoutX="14.0" layoutY="14.0" prefHeight="302.0" prefWidth="171.0">
+                    <children>
+                        <Button id="" fx:id="showBooksBtn" mnemonicParsing="false" onAction="#btnShowMyBooksClick"
+                                prefHeight="30.0" prefWidth="171.0" text="Show my books"/>
+                        <Label prefHeight="38.0" prefWidth="171.0" text="Write Feedback :"/>
+                        <TextField fx:id="fbNo" prefWidth="200.0" text="Number"/>
+                        <TextArea fx:id="feedback" prefWidth="200.0" wrapText="true"/>
+                    </children>
+                </VBox>
+                <Button id="" fx:id="sendFeedbackBtn" layoutX="129.0" layoutY="316.0" mnemonicParsing="false"
+                        text="Send" onAction="#btnSendClick"/>
+                <Separator layoutX="185.0" layoutY="14.0" orientation="VERTICAL" prefHeight="372.0"/>
+                <Label layoutX="200.0" layoutY="14.0" prefHeight="20.960837500002526" prefWidth="148.00009999999747"
+                       text="Search Book"/>
+                <TextField fx:id="searchBTitle" layoutX="188.0" layoutY="35.0" prefHeight="20.9609375" prefWidth="91.0"
+                           text="Title"/>
+                <TextField fx:id="searchFName" layoutX="286.0" layoutY="35.0" prefHeight="20.9609375" prefWidth="115.0"
+                           text="Author's First Name"/>
+                <TextField fx:id="searchLName" layoutX="407.0" layoutY="35.0" prefHeight="20.9609375" prefWidth="115.0"
+                           text="Author's Last Name"/>
+                <Button fx:id="searchBookBtn" layoutX="533.0" layoutY="71.0" mnemonicParsing="false" text="Search"
+                        onAction="#btnSearchClick"/>
+                <Button fx:id="topBooksBtn" layoutX="407.0" layoutY="70.0" mnemonicParsing="false" prefWidth="115.0"
+                        text="Show Top Books" onAction="#btnTopClick"/>
+                <TableView fx:id="copyTable" layoutX="188.0" layoutY="100.0" prefHeight="263.0" prefWidth="405.0"
+                           onMouseClicked="#tblColClick">
+                    <columns>
+                        <TableColumn prefWidth="75.0" text="Book ID" fx:id="idCol"/>
+                        <TableColumn prefWidth="75.0" text="ISBN" fx:id="isbnCol"/>
+                        <TableColumn prefWidth="75.0" text="Title" fx:id="titleCol"/>
+                        <TableColumn prefWidth="75.0" text="First Name" fx:id="fNameCol"/>
+                        <TableColumn prefWidth="75.0" text="Last Name" fx:id="lNameCol"/>
+                        <TableColumn prefWidth="75.0" text="Year" fx:id="yearCol"/>
+                        <TableColumn prefWidth="75.0" text="Location" fx:id="locCol"/>
+                        <TableColumn prefWidth="75.0" text="Status" fx:id="statusCol"/>
+                    </columns>
+                </TableView>
+                <TableView fx:id="myBooksTable" layoutX="188.0" layoutY="100.0" prefHeight="263.0" prefWidth="405.0"
+                           visible="false">
+                    <columns>
+                        <TableColumn prefWidth="75.0" text="ISBN" fx:id="isbn2Col"/>
+                        <TableColumn prefWidth="75.0" text="borrowDate" fx:id="bDateCol"/>
+                        <TableColumn prefWidth="75.0" text="returnDate" fx:id="rDateCol"/>
+                    </columns>
+                </TableView>
+                <TableView fx:id="newBooksTable" layoutX="188.0" layoutY="100.0" prefHeight="263.0" prefWidth="405.0"
+                           visible="false">
+                    <columns>
+                        <TableColumn prefWidth="75.0" text="Title" fx:id="titleNCol"/>
+                        <TableColumn prefWidth="75.0" text="ISBN" fx:id="isbnNCol"/>
+                        <TableColumn prefWidth="75.0" text="Store Date" fx:id="sDateNCol"/>
+                    </columns>
+                </TableView>
+                <TableView fx:id="topBooksTable" layoutX="188.0" layoutY="100.0" prefHeight="263.0" prefWidth="405.0"
+                           visible="false">
+                    <columns>
+                        <TableColumn prefWidth="75.0" text="Title" fx:id="titleTCol"/>
+                        <TableColumn prefWidth="75.0" text="ISBN" fx:id="isbnTCol"/>
+                        <TableColumn prefWidth="75.0" text="Borrow times" fx:id="borrowsCol"/>
+                    </columns>
+                </TableView>
+                <Label layoutX="188.0" layoutY="363.0" prefHeight="23.0" prefWidth="115.0" text="Book not found ?"/>
+                <Button fx:id="suggestBookBtn" layoutX="303.0" layoutY="366.0" mnemonicParsing="false" text="Suggest"
+                        onAction="#btnSuggestClick"/>
+                <Button id="newBooksBtn" layoutX="286.0" layoutY="71.0" mnemonicParsing="false" prefWidth="115.0"
+                        text="Show New Books" onAction="#btnNewClick"/>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

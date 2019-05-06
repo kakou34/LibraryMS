@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.Controller.SuggestController">
+    <children>
+        <Pane fx:id="suggestPane" layoutX="14.0" layoutY="14.0" prefHeight="372.0" prefWidth="572.0">
+            <children>
+                <VBox fx:id="suggestVBox" layoutX="186.0" layoutY="14.0" prefHeight="227.99997792968497"
+                      prefWidth="201.0">
+                    <children>
+                        <Label prefHeight="30.0" prefWidth="158.0" text="Suggest a Book">
+                            <VBox.margin>
+                                <Insets bottom="5.0"/>
+                            </VBox.margin>
+                        </Label>
+                        <TextField fx:id="suggestTitle" prefHeight="30.000099999997474" prefWidth="201.0"
+                                   text="Title:"/>
+                        <TextField fx:id="authorFnameSuggest" prefHeight="30.000099999997474" prefWidth="201.0"
+                                   text="Author's First Name"/>
+                        <TextField fx:id="authorLnameSuggest" prefHeight="30.000099999997474" prefWidth="201.0"
+                                   text="Author's Last Name"/>
+                        <TextField fx:id="publisherSuggest" prefHeight="30.000099999997474" prefWidth="201.0"
+                                   text="Publisher"/>
+                        <TextField fx:id="yearSuggest" prefHeight="30.000099999997474" prefWidth="201.0" text="Year"/>
+                    </children>
+                </VBox>
+                <Button fx:id="suggestBtn" layoutX="313.0" layoutY="243.0" mnemonicParsing="false" text="Suggest"
+                        onAction="#btnSuggestClick"/>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

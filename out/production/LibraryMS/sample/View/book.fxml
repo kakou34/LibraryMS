@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.Controller.BookController">
+    <children>
+        <Pane fx:id="bookCPAne" layoutX="14.0" layoutY="14.0" prefHeight="372.0" prefWidth="572.0">
+            <children>
+                <VBox layoutX="204.0" layoutY="14.0" prefHeight="271.0" prefWidth="164.0">
+                    <children>
+                        <Label prefHeight="26.0" prefWidth="164.0" text="ISBN: " fx:id="labISBN">
+                            <VBox.margin>
+                                <Insets bottom="5.0" fx:id="x1"/>
+                            </VBox.margin>
+                        </Label>
+                        <Label prefHeight="26.0" prefWidth="164.0" text="Title: " VBox.margin="$x1" fx:id="labTitle"/>
+                        <Label prefHeight="26.0" prefWidth="164.0" text="First Name: " VBox.margin="$x1"
+                               fx:id="labFname"/>
+                        <Label prefHeight="26.0" prefWidth="164.0" text="Last Name: " VBox.margin="$x1"
+                               fx:id="labLname"/>
+                        <Label prefHeight="26.0" prefWidth="164.0" text="Year: " VBox.margin="$x1" fx:id="labYear"/>
+                        <Label prefHeight="26.0" prefWidth="164.0" text="Location: " VBox.margin="$x1"
+                               fx:id="labNCopies"/>
+                        <Label prefHeight="26.0" prefWidth="164.0" text="Status: " VBox.margin="$x1"
+                               fx:id="labNborrows"/>
+                    </children>
+                </VBox>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

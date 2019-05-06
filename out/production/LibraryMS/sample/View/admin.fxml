@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" fx:id="admin" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="638.0"
+            xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.Controller.AdminController">
+    <children>
+        <MenuButton layoutX="28.0" layoutY="13.0" mnemonicParsing="false" text="Menu">
+            <items>
+                <MenuItem mnemonicParsing="false" text="Books" onAction="#booksMenu"/>
+                <MenuItem mnemonicParsing="false" text="Students" onAction="#studentsMenu"/>
+                <MenuItem mnemonicParsing="false" text="Professors" onAction="#professorsMenu"/>
+                <MenuItem mnemonicParsing="false" text="Suggestions" onAction="#sugMenu"/>
+                <MenuItem mnemonicParsing="false" text="Locations" onAction="#locMenu"/>
+                <MenuItem mnemonicParsing="false" text="Feedbacks" onAction="#feedMenu"/>
+            </items>
+        </MenuButton>
+        <Separator layoutX="0.0" layoutY="40.0" prefWidth="624.0"/>
+        <Pane fx:id="bookPane" layoutX="11.0" layoutY="33.0" prefHeight="373.0" prefWidth="613.0" visible="false">
+            <children>
+                <VBox layoutX="7.0" layoutY="6.0" prefHeight="283.0" prefWidth="144.0">
+                    <children>
+                        <Label prefHeight="24.0" prefWidth="144.0" text=" Add a Book">
+                            <VBox.margin>
+                                <Insets bottom="5.0"/>
+                            </VBox.margin>
+                        </Label>
+
+                        <TextField fx:id="insertTitle" prefWidth="144.0" text="Title">
+                            <VBox.margin>
+                                <Insets bottom="5.0"/>
+                            </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="insertAuthorF" prefWidth="200.0" text="Author's First Name">
+                            <VBox.margin>
+                                <Insets bottom="5.0"/>
+                            </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="insertAuthorL" prefWidth="200.0" text="Author's Last Name">
+                            <VBox.margin>
+                                <Insets bottom="5.0"/>
+                            </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="insertPublisher" prefWidth="200.0" text="Publisher">
+                            <VBox.margin>
+                                <Insets bottom="5.0"/>
+                            </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="insertYear" prefWidth="200.0" text="Year">
+                            <VBox.margin>
+                                <Insets bottom="5.0"/>
+                            </VBox.margin>
+                        </TextField>
+                    </children>
+                </VBox>
+                <Label layoutX="7.0" layoutY="293.0" prefHeight="31.0" prefWidth="144.0"
+                       text="Number Of Books Stored:"/>
+                <Label fx:id="booksNo" layoutX="7.0" layoutY="324.0" prefHeight="24.0" prefWidth="144.0" text="0000"/>
+                <Separator layoutX="151.0" layoutY="6.0" orientation="VERTICAL" prefHeight="359.0"/>
+                <Label layoutX="163.0" layoutY="10.0" text="Search Book:"/>
+                <HBox layoutX="163.0" layoutY="30.0" prefHeight="27.0" prefWidth="443.0">
+                    <children>
+                        <TextField fx:id="srchTitle" prefWidth="130.0" text="Title">
+                            <HBox.margin>
+                                <Insets right="2.0"/>
+                            </HBox.margin>
+                        </TextField>
+                        <TextField fx:id="srchF" prefWidth="118.0" text="Author's First Name"/>
+                        <TextField fx:id="srchL" prefWidth="118.0" text="Author's Last Name"/>
+                    </children>
+                </HBox>
+                <Button fx:id="searchBtn" layoutX="548.0" layoutY="59.0" mnemonicParsing="false" text="Search"
+                        onAction="#btnSearchClick"/>
+                <Button id="showAllB" fx:id="showAllBtn" layoutX="464.0" layoutY="59.0" mnemonicParsing="false"
+                        text="Show All" onAction="#btnShowClick"/>
+                <TableView layoutX="163.0" layoutY="100.0" prefHeight="251.0" prefWidth="443.0" fx:id="copyTable"
+                           onMouseClicked="#tblColClick">
+                    <columns>
+                        <TableColumn prefWidth="75.0" text="Book ID" fx:id="idCol"/>
+                        <TableColumn prefWidth="75.0" text="ISBN" fx:id="isbnCol"/>
+                        <TableColumn prefWidth="75.0" text="Title" fx:id="titleCol"/>
+                        <TableColumn prefWidth="75.0" text="First Name" fx:id="fNameCol"/>
+                        <TableColumn prefWidth="75.0" text="Last Name" fx:id="lNameCol"/>
+                        <TableColumn prefWidth="75.0" text="Year" fx:id="yearCol"/>
+                        <TableColumn prefWidth="75.0" text="Location" fx:id="locCol"/>
+                        <TableColumn prefWidth="75.0" text="Status" fx:id="statusCol"/>
+                    </columns>
+                </TableView>
+                <Button fx:id="bAddBtn" layoutX="43.0" layoutY="196.0" mnemonicParsing="false" text="Add Book"
+                        onAction="#btnAddClick"/>
+                <VBox layoutX="11.0" layoutY="226.0" prefHeight="44.0" prefWidth="140.0">
+                    <children>
+                        <TextField id="insertBookID" fx:id="insertIsbn" prefWidth="144.0" text="ISBN"/>
+                        <TextField id="insertBookID" fx:id="insertLoc" prefWidth="144.0" text="Location's ZipCode"/>
+                    </children>
+                </VBox>
+                <Button fx:id="cAddBtn" layoutX="45.0" layoutY="277.0" mnemonicParsing="false" text="Add Copy"
+                        onAction="#btnAddCopyClick"/>
+            </children>
+        </Pane>
+        <Pane fx:id="studentPane" layoutX="9.0" layoutY="35.0" prefHeight="403.0" prefWidth="615.0" visible="false">
+            <children>
+                <Label layoutX="14.0" layoutY="14.0" prefHeight="20.960845947265625" text="Target:"/>
+                <VBox layoutX="14.0" layoutY="44.0" prefHeight="319.0" prefWidth="124.99990000000253">
+                    <children>
+                        <TextField fx:id="addId" prefWidth="200.0" text="Student ID">
+                            <VBox.margin>
+                                <Insets bottom="2.0"/>
+                            </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="addFNs" prefWidth="200.0" text="First Name">
+                            <VBox.margin>
+                                <Insets bottom="2.0"/>
+                            </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="addLNs" prefWidth="200.0" text="Last Name">
+                            <VBox.margin>
+                                <Insets bottom="2.0"/>
+                            </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="addPW" prefWidth="200.0" text="Password">
+                            <VBox.margin>
+                                <Insets bottom="2.0"/>
+                            </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="addEmail" prefWidth="200.0" text="Email">
+                            <VBox.margin>
+                                <Insets bottom="2.0"/>
+                            </VBox.margin>
+                        </TextField>
+                        <TextArea fx:id="addAddress" prefHeight="97.0" prefWidth="125.0" text="Address"
+                                  wrapText="true"/>
+                        <TextField fx:id="addDep" prefWidth="200.0" text="Department"/>
+                        <TextField fx:id="addGrade" prefWidth="200.0" text="Grade"/>
+                    </children>
+                </VBox>
+                <Button fx:id="sAddBtn" layoutX="43.0" layoutY="369.0" mnemonicParsing="false" text="Add Student"
+                        onAction="#btnAddStuClick"/>
+                <Separator layoutX="139.0" layoutY="0.0" orientation="VERTICAL" prefHeight="403.0000999999975"/>
+                <TextField fx:id="srchId" layoutX="151.0" layoutY="22.0" prefWidth="125.0" text="Student ID"/>
+                <Button fx:id="sSearchBtn" layoutX="538.0" layoutY="47.0" mnemonicParsing="false" text="Search"
+                        onAction="#btnSearchStClick"/>
+                <TableView layoutX="142.0" layoutY="104.0" prefHeight="292.0" prefWidth="466.0" fx:id="studentTable">
+                    <columns>
+                        <TableColumn prefWidth="75.0" text="ID" fx:id="sidCol"/>
+                        <TableColumn prefWidth="75.0" text="First Name" fx:id="sfnameCol"/>
+                        <TableColumn prefWidth="75.0" text="Last Name" fx:id="slnameCol"/>
+                        <TableColumn prefWidth="75.0" text="Email" fx:id="semailCol"/>
+                        <TableColumn prefWidth="75.0" text="Department" fx:id="sdepCol"/>
+                        <TableColumn prefWidth="75.0" text="Grade" fx:id="sgradeCol"/>
+                    </columns>
+                </TableView>
+                <Button fx:id="uShowAllSBtn" layoutX="473.0" layoutY="47.0" mnemonicParsing="false" text="Show All"
+                        onAction="#btnShowStuClick"/>
+            </children>
+        </Pane>
+        <Pane fx:id="professorPane" layoutX="9.0" layoutY="35.0" prefHeight="403.0" prefWidth="615.0" visible="false">
+            <children>
+                <Label layoutX="14.0" layoutY="14.0" prefHeight="20.960845947265625" text="Target:"/>
+                <VBox layoutX="14.0" layoutY="44.0" prefHeight="319.0" prefWidth="124.99990000000253">
+                    <children>
+                        <TextField fx:id="addIdp" prefWidth="200.0" text="Professor's ID">
+                            <VBox.margin>
+                                <Insets bottom="2.0"/>
+                            </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="addFNp" prefWidth="200.0" text="First Name">
+                            <VBox.margin>
+                                <Insets bottom="2.0"/>
+                            </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="addLNp" prefWidth="200.0" text="Last Name">
+                            <VBox.margin>
+                                <Insets bottom="2.0"/>
+                            </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="addPWp" prefWidth="200.0" text="Password">
+                            <VBox.margin>
+                                <Insets bottom="2.0"/>
+                            </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="addEmailp" prefWidth="200.0" text="Email">
+                            <VBox.margin>
+                                <Insets bottom="2.0"/>
+                            </VBox.margin>
+                        </TextField>
+                        <TextArea fx:id="addAddressp" prefHeight="97.0" prefWidth="125.0" text="Address"
+                                  wrapText="true"/>
+                        <TextField fx:id="addtitlep" prefWidth="200.0" text="Title"/>
+
+                    </children>
+                </VBox>
+                <Button fx:id="pAddBtn" layoutX="43.0" layoutY="369.0" mnemonicParsing="false" text="Add Professor"
+                        onAction="#btnAddProClick"/>
+                <Separator layoutX="139.0" orientation="VERTICAL" prefHeight="403.0000999999975"/>
+                <TextField fx:id="prchId" layoutX="151.0" layoutY="22.0" prefWidth="125.0" text="Professor's ID"/>
+                <Button fx:id="pSearchBtn" layoutX="538.0" layoutY="47.0" mnemonicParsing="false" text="Search"
+                        onAction="#btnSearchProClick"/>
+                <TableView layoutX="142.0" layoutY="104.0" prefHeight="292.0" prefWidth="466.0" fx:id="professorTable">
+                    <columns>
+                        <TableColumn prefWidth="75.0" text="ID" fx:id="pidCol"/>
+                        <TableColumn prefWidth="75.0" text="First Name" fx:id="pfnameCol"/>
+                        <TableColumn prefWidth="75.0" text="Last Name" fx:id="plnameCol"/>
+                        <TableColumn prefWidth="75.0" text="Email" fx:id="pemailCol"/>
+                        <TableColumn prefWidth="75.0" text="Department" fx:id="ptitleCol"/>
+
+                    </columns>
+                </TableView>
+                <Button fx:id="uShowAllPBtn" layoutX="473.0" layoutY="47.0" mnemonicParsing="false" text="Show All"
+                        onAction="#btnShowProClick"/>
+            </children>
+        </Pane>
+        <Pane fx:id="suggestionPane" layoutX="14.0" layoutY="36.0" prefHeight="417.0" prefWidth="617.0" visible="false">
+            <children>
+                <Label layoutX="14.0" layoutY="14.0" prefHeight="24.0" prefWidth="137.0" text="Most Suggested Books"/>
+                <TableView layoutX="14.0" layoutY="39.0" prefHeight="364.0" prefWidth="596.0" fx:id="sugTable">
+                    <columns>
+                        <TableColumn prefWidth="75.0" text="Title" fx:id="sugTitleCol"/>
+                        <TableColumn prefWidth="75.0" text="Book ID" fx:id="sugIdCol"/>
+                        <TableColumn prefWidth="75.0" text="Number of suggestions" fx:id="sugNoCol"/>
+                    </columns>
+                </TableView>
+            </children>
+        </Pane>
+        <Pane fx:id="locPane" layoutX="14.0" layoutY="36.0" prefHeight="410.0" prefWidth="610.0" visible="false">
+            <children>
+                <Label layoutX="14.0" layoutY="14.0" prefHeight="24.0" prefWidth="84.0" text="Add a location: "/>
+                <VBox layoutX="14.0" layoutY="38.0" prefHeight="131.0" prefWidth="137.0">
+                    <children>
+                        <TextField prefWidth="200.0" text="ZIPCode" fx:id="addZipCode">
+                            <VBox.margin>
+                                <Insets bottom="2.0"/>
+                            </VBox.margin>
+                        </TextField>
+                        <TextField prefWidth="200.0" text="State" fx:id="addState">
+                            <VBox.margin>
+                                <Insets bottom="2.0"/>
+                            </VBox.margin>
+                        </TextField>
+                        <TextField prefWidth="200.0" text="City" fx:id="addCity">
+                            <VBox.margin>
+                                <Insets bottom="2.0"/>
+                            </VBox.margin>
+                        </TextField>
+                        <TextField prefWidth="200.0" text="Street" fx:id="addStreet">
+                            <VBox.margin>
+                                <Insets bottom="2.0"/>
+                            </VBox.margin>
+                        </TextField>
+                        <TextField prefWidth="200.0" text="Building Number" fx:id="addBuildNo">
+                            <VBox.margin>
+                                <Insets bottom="2.0" fx:id="x3"/>
+                            </VBox.margin>
+                        </TextField>
+                    </children>
+                </VBox>
+                <Button fx:id="locBtn" layoutX="55.0" layoutY="170.0" mnemonicParsing="false" text="Add"
+                        onAction="#btnAddLocClick"/>
+                <Separator layoutX="151.0" layoutY="5.0" orientation="VERTICAL" prefHeight="405.0"/>
+                <Label layoutX="161.0" layoutY="18.0" prefWidth="84.0" text="All Locations:"/>
+                <TableView layoutX="161.0" layoutY="38.0" prefHeight="358.0" prefWidth="435.0" fx:id="locTable">
+                    <columns>
+                        <TableColumn prefWidth="75.0" text="ZIPCode" fx:id="zipCol"/>
+                        <TableColumn prefWidth="75.0" text="State" fx:id="stateCol"/>
+                        <TableColumn prefWidth="75.0" text="City" fx:id="cityCol"/>
+                        <TableColumn prefWidth="75.0" text="Street" fx:id="streetCol"/>
+                        <TableColumn prefWidth="75.0" text="Building Number" fx:id="buildNoCol"/>
+                    </columns>
+                </TableView>
+            </children>
+        </Pane>
+        <Pane fx:id="feedPane" layoutX="14.0" layoutY="36.0" prefHeight="410.0" prefWidth="610.0" visible="false">
+            <children>
+                <Label layoutX="14.0" layoutY="14.0" prefHeight="17.9609375" prefWidth="73.0" text="Feedbacks:"/>
+                <TableView layoutX="14.0" layoutY="32.0" prefHeight="364.0" prefWidth="582.0" fx:id="feedTable">
+                    <columns>
+                        <TableColumn prefWidth="75.0" text=" User ID" fx:id="fIdCol"/>
+                        <TableColumn prefWidth="75.0" text="Feedback" fx:id="feedCol"/>
+                    </columns>
+                </TableView>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>
